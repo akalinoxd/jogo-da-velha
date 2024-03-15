@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <>
       <main>
-        <table>
+        <table className='gameBoard'>
           <tr>
             <td></td>
             <td></td>
