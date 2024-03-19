@@ -24,7 +24,9 @@ function App() {
   function checkWinner(board) {
     for (let i = 0; i < board.length; i++) {
       if (board[i] == currentPlayer && board[i + 1] == currentPlayer && board[i + 2] == currentPlayer && (i+2 == 2 || i+2 == 5 || i+2 == 8)  ||
-        board[i] == currentPlayer && board[i + 3] == currentPlayer && board[i + 6] == currentPlayer) {
+        board[i] == currentPlayer && board[i + 3] == currentPlayer && board[i + 6] == currentPlayer ||
+        board[i] == currentPlayer && board[i + 4] == currentPlayer && board[i + 8] == currentPlayer ||
+        board[i] == currentPlayer && board[i + 2] == currentPlayer && board[i + 4] == currentPlayer) {
         winMessage = `o "${currentPlayer}" venceu`
         gameOver = true
         isInGame(false)
