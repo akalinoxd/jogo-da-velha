@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css';
 
 let gameBoard = [
@@ -23,14 +23,13 @@ function App() {
 
   function checkWinner(board) {
     for (let i = 0; i < board.length; i++) {
-      if (board[i] == currentPlayer && board[i + 1] == currentPlayer && board[i + 2] == currentPlayer && (i+2 == 2 || i+2 == 5 || i+2 == 8)  ||
+      if (board[i] == currentPlayer && board[i + 1] == currentPlayer && board[i + 2] == currentPlayer && (i + 2 == 2 || i + 2 == 5 || i + 2 == 8) ||
         board[i] == currentPlayer && board[i + 3] == currentPlayer && board[i + 6] == currentPlayer ||
-        board[i] == currentPlayer && board[i + 4] == currentPlayer && board[i + 8] == currentPlayer ||
-        board[i] == currentPlayer && board[i + 2] == currentPlayer && board[i + 4] == currentPlayer) {
+        board[i] == currentPlayer && board[i + 4] == currentPlayer && board[i + 8] == currentPlayer && i == 0 ||
+        board[i] == currentPlayer && board[i + 2] == currentPlayer && board[i + 4] == currentPlayer && i == 2) {
         winMessage = `o "${currentPlayer}" venceu`
         gameOver = true
         isInGame(false)
-        console.log(board)
       }
     }
   }
@@ -39,10 +38,39 @@ function App() {
     const button = e.target
     const position = parseInt(button.id)
 
-    gameBoard[position] = currentPlayer
-    checkCurrentPlayer(currentPlayer)
-    checkWinner(gameBoard)
+    if (gameBoard[position] == "X" || gameBoard[position] == "O") {
+      return
+    } else {
+      gameBoard[position] = currentPlayer
+      checkCurrentPlayer(currentPlayer)
+      checkWinner(gameBoard)
+      return
+    }
   }
+
+  useEffect(() => {
+    const emptySquares = []
+
+    if (currentPlayer == "X") {
+      gameBoard.forEach((val, index) => {
+        if (typeof val === "object") {
+          emptySquares.push(index)
+        }
+      })
+      const position = Math.floor(Math.random() * emptySquares.length)
+
+      setTimeout(() => {
+        if (gameBoard[emptySquares[position]] == "X" || gameBoard[emptySquares[position]] == "O") {
+        } else {
+          checkWinner(gameBoard)
+          if (inGame == true) {
+            gameBoard[emptySquares[position]] = currentPlayer
+            checkCurrentPlayer(currentPlayer)
+          }
+        }
+      }, 1000)
+    }
+  }, [currentPlayer])
 
   let gameDisplayer = (
     <tbody>
