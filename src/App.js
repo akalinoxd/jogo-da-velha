@@ -27,7 +27,7 @@ function App() {
         board[i] == currentPlayer && board[i + 3] == currentPlayer && board[i + 6] == currentPlayer ||
         board[i] == currentPlayer && board[i + 4] == currentPlayer && board[i + 8] == currentPlayer && i == 0 ||
         board[i] == currentPlayer && board[i + 2] == currentPlayer && board[i + 4] == currentPlayer && i == 2) {
-        winMessage = `o "${currentPlayer}" venceu`
+        winMessage = `A letra "${currentPlayer}" venceu!`
         gameOver = true
         isInGame(false)
       }
@@ -94,6 +94,9 @@ function App() {
 
   return (
     <>
+      <header>
+        <h1>Jogo da velha</h1>
+      </header>
       <main>
         <table className='gameBoard'>
           {gameDisplayer}
