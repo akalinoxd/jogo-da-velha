@@ -6,6 +6,7 @@
 html, body, #root{
   width: 100% !important;
   height: 100% !important;
+  overflow-y: hidden;
 }
 
 main{
@@ -35,9 +36,36 @@ td button{
   position: fixed;
 }
 
-.winMessage{
-  margin-top: 50px;
+.container{
+  position: absolute;
   width: 100%;
-  font-size: 18pt;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 16%;
+  background-color: rgba(255, 255, 255, 0.458);
+}
+
+.winMessage{
+  border: 1px solid black;
+  width: 250px;
+  height: 250px;
+  background-color: white;
   text-align: center;
+  line-height: 250px;
+}
+
+.winMessage span{
+  display: block;
+  font-size: 20pt;
+}
+
+.winMessage button{
+  display: block;
+  width: 250px;
+  height: 50px;
+  background-color: grey;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 16pt;
 }
