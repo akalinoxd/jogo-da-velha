@@ -77,6 +77,7 @@ const NovoJogo = () => {
                         <BolinhaInimiga index={7} startTime={3000} />
                         <BolinhaInimiga index={8} startTime={3500} />
                         <BolinhaInimiga index={9} startTime={4000} />
+                        <BolinhaInimiga index={10} startTime={4500} />
                     </div>
                     <div style={bolinhaPrincipalStyle}></div>
                 </div>

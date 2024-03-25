@@ -4,11 +4,29 @@ const BolinhaInimiga = ({ index, startTime }) => {
 
     const [posX, setPosX] = useState(Math.random() * (678 - 0) + 0)
     const [posY, setPosY] = useState(0)
+    const [isVisible, setVisible] = useState(false)
 
     const step = 3
 
+    const ballStyle = {
+        border: '2px solid black',
+        backgroundColor: 'red',
+        width: '20px',
+        height: '20px',
+        borderRadius: '100px',
+        display: isVisible ? 'inline-block' : 'none',
+        position: 'absolute',
+        left: `${posX}px`,
+        top: `${posY}px`
+    }
+
+
     const move = () => {
         setPosY(prevPosY => {
+            if (prevPosY > 0) {
+                setVisible(true)
+            }
+
             if (prevPosY <= 678) {
                 return prevPosY + step
             } else {
@@ -25,18 +43,6 @@ const BolinhaInimiga = ({ index, startTime }) => {
             }, 50)
         }, startTime)
     }, [])
-
-    const ballStyle = {
-        border: '2px solid black',
-        backgroundColor: 'red',
-        width: '20px',
-        height: '20px',
-        borderRadius: '100px',
-        display: 'inline-block',
-        position: 'absolute',
-        left: `${posX}px`,
-        top: `${posY}px`
-    }
 
     return (
         <div className='elem' id={`elem${index}`} key={`elem${index}`} style={ballStyle}></div>
