@@ -1,11 +1,13 @@
 import './novojogo.css';
 import { useState, useEffect } from 'react';
+import BolinhaInimiga from '../components/BolinhaInimiga.jsx';
 
 const NovoJogo = () => {
 
     const [posX, setPosX] = useState(0)
-    const [posY, setPosY] = useState(0)
-    const step = 15
+    const [posY, setPosY] = useState(300)
+    
+    const step = 10
     const limit = 320
     const pressedKeys = {}
 
@@ -37,7 +39,7 @@ const NovoJogo = () => {
             pressedKeys[e.key] = false
         }
 
-        
+
 
         document.addEventListener('keydown', checkKeyDown)
         document.addEventListener('keyup', checkKeyUp)
@@ -49,7 +51,7 @@ const NovoJogo = () => {
         }
     }, [])
 
-    const bolinhaStyle = {
+    const bolinhaPrincipalStyle = {
         position: 'relative',
         top: `${posY}px`,
         left: `${posX}px`,
@@ -65,7 +67,18 @@ const NovoJogo = () => {
         <>
             <div className="containerNovoJogo">
                 <div className='contentNovoJogo'>
-                    <div style={bolinhaStyle}></div>
+                    <div className='elems'>
+                        <BolinhaInimiga index={1} startHeight={0} />
+                        <BolinhaInimiga index={2} startHeight={50} />
+                        <BolinhaInimiga index={3} startHeight={100} />
+                        <BolinhaInimiga index={4} startHeight={150} />
+                        <BolinhaInimiga index={5} startHeight={200} />
+                        <BolinhaInimiga index={6} startHeight={250} />
+                        <BolinhaInimiga index={7} startHeight={300} />
+                        <BolinhaInimiga index={8} startHeight={350} />
+                        <BolinhaInimiga index={9} startHeight={400} />
+                    </div>
+                    <div style={bolinhaPrincipalStyle}></div>
                 </div>
             </div>
         </>

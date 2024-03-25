@@ -13,3 +13,11 @@
     margin: 10px 0 10px 0;
     display: flex;
 }
+
+.elems{
+    background-color: rgba(0, 0, 255, 0.253);
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    display: flex;
+}
