@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const BolinhaInimiga = ({ index, startHeight }) => {
+const BolinhaInimiga = ({ index, startTime }) => {
 
     const [posX, setPosX] = useState(Math.random() * (678 - 0) + 0)
-    const [posY, setPosY] = useState(startHeight)
-    
+    const [posY, setPosY] = useState(0)
+
     const step = 3
 
     const move = () => {
@@ -19,11 +19,11 @@ const BolinhaInimiga = ({ index, startHeight }) => {
     }
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTimeout(() => {
+        setTimeout(() => {
+            const interval = setInterval(() => {
                 move()
-            }, 1000)
-        }, 50)
+            }, 50)
+        }, startTime)
     }, [])
 
     const ballStyle = {

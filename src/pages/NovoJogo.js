@@ -6,7 +6,7 @@ const NovoJogo = () => {
 
     const [posX, setPosX] = useState(0)
     const [posY, setPosY] = useState(300)
-    
+
     const step = 10
     const limit = 320
     const pressedKeys = {}
@@ -68,15 +68,15 @@ const NovoJogo = () => {
             <div className="containerNovoJogo">
                 <div className='contentNovoJogo'>
                     <div className='elems'>
-                        <BolinhaInimiga index={1} startHeight={0} />
-                        <BolinhaInimiga index={2} startHeight={50} />
-                        <BolinhaInimiga index={3} startHeight={100} />
-                        <BolinhaInimiga index={4} startHeight={150} />
-                        <BolinhaInimiga index={5} startHeight={200} />
-                        <BolinhaInimiga index={6} startHeight={250} />
-                        <BolinhaInimiga index={7} startHeight={300} />
-                        <BolinhaInimiga index={8} startHeight={350} />
-                        <BolinhaInimiga index={9} startHeight={400} />
+                        <BolinhaInimiga index={1} startTime={0} />
+                        <BolinhaInimiga index={2} startTime={500} />
+                        <BolinhaInimiga index={3} startTime={1000} />
+                        <BolinhaInimiga index={4} startTime={1500} />
+                        <BolinhaInimiga index={5} startTime={2000} />
+                        <BolinhaInimiga index={6} startTime={2500} />
+                        <BolinhaInimiga index={7} startTime={3000} />
+                        <BolinhaInimiga index={8} startTime={3500} />
+                        <BolinhaInimiga index={9} startTime={4000} />
                     </div>
                     <div style={bolinhaPrincipalStyle}></div>
                 </div>
