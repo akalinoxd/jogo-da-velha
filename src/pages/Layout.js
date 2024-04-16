@@ -17,6 +17,9 @@ const Layout = () => {
                     <li>
                         <Link to="/novo-jogo">Novo Jogo</Link>
                     </li>
+                    <li>
+                        <Link to="/desafio-react" >Desafio React</Link>
+                    </li>
                 </ul>
             </nav>
 
